@@ -52,7 +52,6 @@ const root = new Vue(
         },
         methods: {
             previousCover() {
-                console.warn("prev");
                 if (this.activeElement === 0) {
 
                     this.activeElement = this.city.length - 1;
@@ -67,7 +66,10 @@ const root = new Vue(
                     this.activeElement++;
                 }
             },
+            changeCover(coverIndex) {
+                this.activeElement = coverIndex;
 
+            },
         }
     }
 );

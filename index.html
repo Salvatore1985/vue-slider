@@ -42,12 +42,10 @@
                     </div>
                     <div class="my-thumbnails position-relative d-flex">
                         <!-- prev -->
-                        <div class="my-previous position-absolute" @click="previousCover()">
-                            <span class="my-prev-hook"></span>
-                        </div>
+
                         <!-- immagini interne -->
                         <div class="my-cover-images" v-for="(coverMini,index) in city"
-                            :class="(index === activeElement) ?'active':''">
+                            :class="(index === activeElement) ?'active':''" @click="changeCover(index)">
                             <img :src="coverMini.items" :alt="coverMini.title">
                         </div>
                         <div class="my-previous position-absolute">
@@ -55,6 +53,9 @@
                         </div>
                         <!-- next -->
                         <div class="my-next position-absolute" @click="nextCover()">
+                            <span class="my-next-hook"></span>
+                        </div>
+                        <div class="my-previous position-absolute" @click="previousCover()">
                             <span class="my-next-hook"></span>
                         </div>
                     </div>
