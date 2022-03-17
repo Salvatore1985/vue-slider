@@ -15,9 +15,10 @@ Forse questa volta possiamo fare qualcosa di meglio di 3 array separati... sì, 
 
 const root = new Vue(
     {
+
         el: "#root",
         data: {
-
+            activeElement: 0,
             city: [
                 {
                     items: 'img/01.jpg',
@@ -49,7 +50,22 @@ const root = new Vue(
             ],
 
         },
-
+        methods: {
+            previousCover() {
+                if (this.activeElement === 0) {
+                    this.activeElement = this.city.length - 1;
+                } else {
+                    this.activeElement--;
+                }
+            },
+            nextCover() {
+                if (this.activeElement === this.city.length - 1) {
+                    this.activeElement = 0;
+                } else {
+                    this.activeElement++;
+                }
+            },
+        }
     }
 );
 
