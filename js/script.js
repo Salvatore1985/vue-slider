@@ -19,6 +19,7 @@ const root = new Vue(
         el: "#root",
         data: {
             activeElement: 0,
+            hasAutoScroll: null,
             city: [
                 {
                     items: 'img/01.jpg',
@@ -70,6 +71,15 @@ const root = new Vue(
                 this.activeElement = coverIndex;
 
             },
+            autoScroll() {
+                this.hasAutoScroll = setInterval(() => {
+                    this.nextCover();
+                }, 2500);
+            },
+            stopScroll() {
+                clearInterval(this.hasAutoScroll);
+                this.hasAutoScroll = null;
+            }
         }
     }
 );
