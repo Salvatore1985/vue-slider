@@ -22,30 +22,48 @@
 </head>
 
 <body>
-    <main>
-        <div class="container-fluid" id="root">
-            <div class="row pt-5">
-                <div class="offset-2 col-8">
-                    <div class="d-flex" id="wrapped-gallery">
-                        <div id="gallery-glass">
-                            <div id="point">
+    <div class="container-fluid p-5" id="root">
+        <div class="row text-center">
+            <div class="col-12 p-3" id="my-before-carousel">
 
+            </div>
+
+            <div class="col-12 p-5">
+                <div class="my-carousel-container d-flex flex-column px-5" id="my-carousel">
+                    <div class="my-carousel-images" v-for="(cover,index) in city">
+                        <!-- immagini -->
+                        <div class="my-img-container ">
+                            <div>
+                                <img :src="cover.items" :alt="cover.title">
+                            </div>
+                            <div class=" text-end p-5 w-100" id="wrapped-text">
+                                <h2>{{cover.title}}</h2>
+                                <p>{{cover.text}}</p>
                             </div>
                         </div>
-                        <!-- Gallery-Mini -->
-                        <div class="" id="gallery-mini">
-                            <div class="overflow-auto" id="wrapped-gallery-mini">
-
-                            </div>
-
-                            <div class="forward"></div>
-                            <div class="back"></div>
+                    </div>
+                    <div class="my-thumbnails position-relative d-flex">
+                        <!-- prev -->
+                        <div class="my-cover-images" v-for="(coverMini,index) in city">
+                            <img :src="coverMini.items" :alt="coverMini.title">
+                        </div>
+                        <div class="my-previous position-absolute">
+                            <span class="my-prev-hook"></span>
+                        </div>
+                        <!-- immagini interne -->
+                        <!-- next -->
+                        <div class="my-next position-absolute">
+                            <span class="my-next-hook"></span>
                         </div>
                     </div>
                 </div>
             </div>
 
-    </main>
+            <div class="col-12 p-3" id="my-after-carousel">
+
+            </div>
+        </div>
+    </div>
     <script src="js/script.js"></script>
 </body>
 
