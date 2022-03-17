@@ -52,7 +52,9 @@ const root = new Vue(
         },
         methods: {
             previousCover() {
+                console.warn("prev");
                 if (this.activeElement === 0) {
+
                     this.activeElement = this.city.length - 1;
                 } else {
                     this.activeElement--;
@@ -65,6 +67,7 @@ const root = new Vue(
                     this.activeElement++;
                 }
             },
+
         }
     }
 );
